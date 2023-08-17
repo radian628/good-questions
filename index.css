@@ -69,3 +69,27 @@ section {
 .selected-section {
   background-color: #eeeeee;
 }
+
+.divider {
+  border-bottom: 1px solid black;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  color: black;
+  text-decoration: none;
+}
+
+a {
+  color: rgb(61, 61, 113);
+}
+
+a:hover {
+  color: rgb(61, 61, 113);
+}
