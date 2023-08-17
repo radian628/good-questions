@@ -60,3 +60,12 @@ main {
   border-radius: 3px;
   padding: 3px;
 }
+
+section {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.selected-section {
+  background-color: #eeeeee;
+}
