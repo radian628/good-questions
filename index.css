@@ -53,3 +53,10 @@ main {
   background: rgba(96, 183, 87, 0.2);
   border-right: 50px solid rgba(27, 82, 20, 0.2);
 }
+
+.placeholder {
+  font-family: monospace;
+  background-color: #00000022;
+  border-radius: 3px;
+  padding: 3px;
+}
