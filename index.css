@@ -93,3 +93,7 @@ a {
 a:hover {
   color: rgb(61, 61, 113);
 }
+
+.thinking {
+  font-style: italic;
+}
