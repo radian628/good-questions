@@ -211,13 +211,30 @@ header .container .theme-toggle {
 .intermission {
   margin-block: calc(var(--pico-typography-spacing-vertical) * 3);
   text-align: center;
-  justify-content: center;
   align-items: center;
+}
+
+.image-group {
+  display: grid;
+  place-items: center;
+}
+
+.image-group > img {
+  grid-row-start: 1;
+  grid-column-start: 1;
 }
 
 .intermission img {
   margin-inline: auto;
   max-width: 200px;
+}
+
+.hover-reveal {
+  opacity: 0;
+  transition: opacity 500ms ease-out 1s;
+}
+.image-group:hover .hover-reveal {
+  opacity: 1;
 }
 
 /* footer styles */
