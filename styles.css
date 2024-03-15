@@ -1,3 +1,4 @@
+/* Variables and Pico overrides */
 :root body {
   --pico-transition: 100ms ease-out;
   --pico-code-background-color: #0000001a;
@@ -15,35 +16,39 @@
 }
 
 /* Dark */
-
 [data-theme="dark"] {
   --pico-mark-gradient: linear-gradient(to right, #d0d2fa, #b7d9fc, #cbfce1);
 }
 
-/* Evil invert hack */
+/* Evil SVG invert hack */
 [data-theme="dark"] :is(h1, h2, h3, h4, h5, h6) a.contrast::after,
 [data-theme="dark"] .bad::before,
 [data-theme="dark"] .good::after {
   filter: invert(0.8);
 }
 
+/* A little shifting shenans */
 :root main {
   padding-top: 0;
 }
 
+/* Article spacing between elements */
 article > * + * {
   margin-bottom: var(--pico-typography-spacing-vertical);
 }
 
+/* Header link scroll offset */
 main article :is(h1, h2, h3, h4, h5, h6):not(:first-child) {
   scroll-margin-top: 2rem;
   margin-top: 1em;
 }
 
+/* Fix code padding for smaller boxes */
 code {
   padding: 0.3rem 0.2rem 0.1rem;
 }
 
+/**** Utility classes ****/
 .noselect {
   user-select: none;
 }
@@ -74,7 +79,7 @@ main :is(h1, h2, h3, h4, h5, h6) a.contrast {
   margin-inline: auto;
 }
 
-/* Specific styles */
+/**** Specific styles ****/
 header .container {
   display: flex;
   align-items: center;
