@@ -31,15 +31,20 @@ const hashchange = () => {
 window.addEventListener("hashchange", hashchange);
 hashchange();
 
-// Theme toggle
-const themeToggle = document.querySelector(".theme-toggle");
-
-function initialTheme() {
-  let theme = window.localStorage.getItem("theme");
-  if (theme !== null) {
-    setTheme(theme);
+// Theme related
+function getTheme() {
+  if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+    return localStorage.getItem("theme");
   }
-  updateButtonStyles();
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    return "dark";
+  }
+  return "light";
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  window.localStorage.setItem("theme", theme);
 }
 
 function updateButtonStyles() {
@@ -50,28 +55,13 @@ function updateButtonStyles() {
   }
 }
 
-function getTheme() {
-  return document.documentElement.getAttribute("data-theme");
-}
-
-function setTheme(mode) {
-  if (mode === null) return;
-  document.documentElement.setAttribute("data-theme", mode);
-  window.localStorage.setItem("theme", mode);
-}
-
+// Theme toggle
 function handleClick() {
-  let theme = getTheme();
-  if (theme === null) {
-    console.log("No theme. Setting to Dark");
-    setTheme("dark");
-    return;
-  }
-  theme === "light" ? setTheme("dark") : setTheme("light");
+  getTheme() === "light" ? setTheme("dark") : setTheme("light");
   updateButtonStyles();
 }
-
-// Attach click handler
+const themeToggle = document.querySelector(".theme-toggle");
 themeToggle.addEventListener("click", handleClick);
 
-initialTheme();
+// Set initial button style
+updateButtonStyles();
