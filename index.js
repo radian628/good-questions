@@ -1,5 +1,5 @@
 // Add links to all the headers
-const headers = document.querySelectorAll("#content :is(h1,h2,h3,h4,h5,h6)");
+const headers = document.querySelectorAll(":is(h1,h2,h3,h4,h5,h6)[id]");
 
 // Replace the contents of each header with an <a> containing the old content
 headers.forEach((header) => {
