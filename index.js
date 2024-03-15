@@ -1,16 +1,16 @@
 // Add links to all the headers
 const headers = document.querySelectorAll("#content :is(h1,h2,h3,h4,h5,h6)");
 
-for (const header of headers) {
+// Replace the contents of each header with an <a> containing the old content
+headers.forEach((header) => {
   const innerHTML = header.innerHTML;
   const a = document.createElement("a");
   a.href = `#${header.id}`;
   a.innerHTML = innerHTML;
-  a.classList = "contrast";
-  const children = Array.from(header.children);
   header.innerHTML = "";
+  a.classList = "contrast"; // Make the link contrast (Pico style)
   header.appendChild(a);
-}
+});
 
 // Highlight a linked header
 let lastSelectedSection;
@@ -29,7 +29,6 @@ const hashchange = () => {
 
 // Listen for hash changes and run on startup
 window.addEventListener("hashchange", hashchange);
-
 hashchange();
 
 // Theme toggle
