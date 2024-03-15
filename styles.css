@@ -123,7 +123,7 @@ header .container .theme-toggle {
   margin-bottom: calc(var(--pico-homepage-spacing-vertical) / 2);
 }
 
-#main-title em {
+.hero h1 em {
   display: inline-block;
   padding-inline: 4px;
   line-height: 1.8;
