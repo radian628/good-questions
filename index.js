@@ -5,6 +5,7 @@ for (const header of headers) {
   const a = document.createElement("a");
   a.href = `#${header.id}`;
   a.innerHTML = innerHTML;
+  a.classList = "contrast";
   const children = Array.from(header.children);
   header.innerHTML = "";
   header.appendChild(a);
