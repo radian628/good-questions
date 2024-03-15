@@ -5,36 +5,38 @@
   --link-data-url: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWxpbmsiPjxwYXRoIGQ9Ik0xMCAxM2E1IDUgMCAwIDAgNy41NC41NGwzLTNhNSA1IDAgMCAwLTcuMDctNy4wN2wtMS43MiAxLjcxIi8+PHBhdGggZD0iTTE0IDExYTUgNSAwIDAgMC03LjU0LS41NGwtMyAzYTUgNSAwIDAgMCA3LjA3IDcuMDdsMS43MS0xLjcxIi8+PC9zdmc+);
   --check-data-url: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZWNrIj48cGF0aCBkPSJNMjAgNiA5IDE3bC01LTUiLz48L3N2Zz4=);
   --cross-data-url: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXgiPjxwYXRoIGQ9Ik0xOCA2IDYgMTgiLz48cGF0aCBkPSJtNiA2IDEyIDEyIi8+PC9zdmc+);
+
+  --readable-width: 800px;
 }
 
 /* Light */
-@media only screen and (prefers-color-scheme: light) {
+[data-theme="light"] {
+  --pico-mark-gradient: linear-gradient(to right, #2060df, #0172ad, #006d46);
 }
 
 /* Dark */
-@media only screen and (prefers-color-scheme: dark) {
-  a.contrast::after,
-  .bad::before,
-  .good::after {
-    filter: invert(0.8);
-  }
+
+[data-theme="dark"] {
+  --pico-mark-gradient: linear-gradient(to right, #d0d2fa, #b7d9fc, #cbfce1);
+}
+
+/* Evil invert hack */
+[data-theme="dark"] :is(h1, h2, h3, h4, h5, h6) a.contrast::after,
+[data-theme="dark"] .bad::before,
+[data-theme="dark"] .good::after {
+  filter: invert(0.8);
 }
 
 :root main {
   padding-top: 0;
-  max-width: 800px;
 }
 
-section > * + * {
+article > * + * {
   margin-bottom: var(--pico-typography-spacing-vertical);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+main article :is(h1, h2, h3, h4, h5, h6):not(:first-child) {
+  scroll-margin-top: 2rem;
   margin-top: 1em;
 }
 
@@ -42,20 +44,96 @@ code {
   padding: 0.3rem 0.2rem 0.1rem;
 }
 
-a.contrast {
-  text-decoration-color: transparent;
-}
-a.contrast::after {
-  display: inline-block;
-  width: 0;
-  content: var(--link-data-url);
-  margin-inline-start: 0.5ch;
-  font-size: 0.5em;
-}
-a.contrast:hover {
-  text-decoration-color: var(--pico-underline);
+.noselect {
+  user-select: none;
 }
 
+main :is(h1, h2, h3, h4, h5, h6) a.contrast {
+  text-decoration-color: transparent;
+
+  &::after {
+    display: inline-block;
+    width: 0;
+    content: var(--link-data-url);
+    margin-inline-start: 0.5ch;
+    font-size: 0.5em;
+    opacity: 0.2;
+    transition: opacity var(--pico-transition);
+  }
+
+  &:hover {
+    text-decoration-color: var(--pico-underline);
+  }
+  &:hover::after {
+    opacity: 0.5;
+  }
+}
+
+.readable-width {
+  max-width: var(--readable-width);
+  margin-inline: auto;
+}
+
+/* Specific styles */
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .container .theme-toggle {
+  color: var(--pico-contrast-color);
+  box-shadow: unset;
+
+  /* counter the padding so it lines up with a tags */
+  margin: calc(var(--pico-nav-link-spacing-vertical) * -1) calc(var(--pico-nav-link-spacing-horizontal) * -1);
+}
+
+.title {
+  margin: 0;
+}
+
+.hero {
+  --pico-homepage-spacing-vertical: calc(var(--pico-spacing) * 9);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  margin-top: var(--pico-homepage-spacing-vertical);
+  margin-bottom: calc(var(--pico-homepage-spacing-vertical) / 2);
+}
+
+#main-title em {
+  display: inline-block;
+  padding-inline: 4px;
+  line-height: 1.8;
+  background: var(--pico-mark-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero > * {
+  text-align: center;
+  text-wrap: balance;
+}
+
+.cta > * {
+  color: var(--pico-muted-color);
+  margin: 0;
+}
+.cta-arrow {
+  animation: read-more-float 2s ease-in-out infinite alternate;
+}
+
+@keyframes read-more-float {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 0 3px;
+  }
+}
+
+/* Styles for the article */
 .comparison {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -75,6 +153,7 @@ a.contrast:hover {
   transform: translateY(-50%);
   top: 50%;
   color: rgba(0, 0, 0, 0.6);
+  height: 24px;
 }
 
 .bad::before {
@@ -99,10 +178,31 @@ a.contrast:hover {
   border-right: 50px solid rgba(27, 82, 20, 0.2);
 }
 
-.selected-section {
-  background-color: #eeeeee;
+.selected-section > :is(h1, h2, h3) a {
+  text-decoration-style: dashed;
+  text-decoration-color: var(--pico-underline);
 }
 
 .thinking {
   font-style: italic;
+}
+
+/* Intermission styles */
+.intermission {
+  margin-block: calc(var(--pico-typography-spacing-vertical) * 3);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.intermission img {
+  margin-inline: auto;
+  max-width: 200px;
+}
+
+/* footer styles */
+footer {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
 }

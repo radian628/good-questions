@@ -3,419 +3,417 @@
   <head>
     <title>Asking Good Questions</title>
     <meta name="title" content="How to Ask Good Questions" />
-    <meta
-      name="description"
-      content="How to get your questions answered more quickly in online forums."
-    />
+    <meta name="description" content="How to get your questions answered more quickly in online forums." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    />
+    <!-- Favicon stuff -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png" />
+    <link rel="manifest" href="./favicon/site.webmanifest" />
+    <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="./favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#b91d47" />
+    <meta name="msapplication-config" content="./favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <!-- Other styles -->
     <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <!-- Theme switcher -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/theme-toggles@4.10.1/css/within.min.css" />
+    <!-- Set up initial theme -->
+    <script is:inline>
+      // This must be inline to stop FOUC
+
+      // Get the theme from local storage, otherwise color scheme preference, otherwise light
+      const theme = (() => {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+
+      // Set a data attribute for Pico, but don't store it
+      // (users may change their preference between visits)
+      document.documentElement.setAttribute("data-theme", theme);
+    </script>
   </head>
   <body>
-    <main class="container-fluid">
-      <article>
-        <section>
-          <h1 id="main-title">How to get your questions answered faster.</h1>
-          <p>
-            This is a list of tips on how to get questions answered more quickly
-            in online spaces. It's tailored toward technical questions in
-            asynchronous media such as emails, chat rooms, and forums.
-          </p>
-          <p>
-            If you want an overarching theme to remember, the rule of thumb is
-            to
-            <em>give the person answering as much help as possible</em>, so
-            they'll be incentivized to look at your question sooner. Help them
-            so they can help you&mdash;it's a win-win!
-          </p>
-        </section>
-        <section>
-          <h2 id="cast-a-wide-net">Cast as wide a net as possible</h2>
-          <div class="comparison">
-            <div class="bad">Any JavaScript pros around that can help me?</div>
-            <div class="good">
-              I am trying to do <code>X</code> with JavaScript, can someone
-              help?
-            </div>
-          </div>
-          <p>
-            If you're asking for help, try to avoid walling off
-            people&mdash;leave your question open so that anyone feels like
-            they're allowed to answer it. This is important for programming in
-            particular because what might
-            <em>seem</em> like a language-specific question might actually be
-            something that any experienced programmer would know, regardless of
-            language. By asking for a "JavaScript pro," you might be walling off
-            a Python pro who knows the answer.
-          </p>
-          <p>
-            On a similar note, avoid DMing someone a question when you can just
-            as easily reach them in a public place (e.g. a group chat or forum)
-            that they frequently visit. That way, not only can they answer, but
-            someone else could as well.
-          </p>
-        </section>
-        <section>
-          <h2 id="be-upfront">Be Upfront&mdash;Minimize Back-and-Forth</h2>
-          <div class="comparison">
-            <div class="bad">Hey, I need some help with JavaScript.</div>
-            <div class="good">
-              I am trying to do <code>X</code>, <code>Y</code>, and
-              <code>Z</code> with JavaScript. Here's what I've tried so far and
-              here's why it failed:
-            </div>
-          </div>
-          <p>
-            <em>Add as much information as you can to your initial post</em>
-            when you ask a question. This will make it easier to answer because
-            the answerer won't have to ask as many clarifying questions.
-          </p>
-          <p>
-            In general, when communicating over an asynchronous medium, people
-            prefer answering questions on their own time over carving out a
-            specific, contiguous block of time to help someone. Furthermore, a
-            lot of the time, they'll only have a minute or two to answer
-            questions before they return to some other task. They won't want to
-            respond to a question with a lot of back-and-forth because they
-            might not know when they'll next have a break where they can follow
-            up. They don't want to leave you hanging!
-          </p>
-        </section>
-        <section>
-          <h3 id="no-hello">"No Hello"</h3>
-          <div class="comparison">
-            <div class="bad">Hi!</div>
-            <div class="good">
-              Hi! I ran into this problem with
-              <code>X</code> the other day and needed some help with...
-            </div>
-          </div>
-          <p>
-            Another tempting mistake is to start with a greeting like "Hi!" or
-            "Hello" in your first message, but send your actual question in a
-            second message. Your first message will key the other person in that
-            you want to talk, but you might lose their attention while writing
-            out your actual question, because they might switch back to what
-            they were doing before you greeted them. It's best to combine both
-            greeting and question into one message.
-          </p>
-          <p>
-            In this sense, you should think of your messages as if you were
-            <em>writing a letter to a pen pal, and not a live phone call</em>.
-            It wouldn't make sense to send a pen pal a single letter consisting
-            of "hi!" and nothing else.
-          </p>
-        </section>
-        <section>
-          <h2 id="xy-problem">State Your Problem, Not Just Your Solution</h2>
-          <div class="comparison">
-            <div class="bad">How do I do <code>Y</code>?</div>
-            <div class="good">
-              How do I do <code>Y</code>? I'm trying to use it to solve
-              <code>X</code>.
-            </div>
-          </div>
-          <p>
-            If you have a problem and only ask about the way you intend to solve
-            it, you lose the opportunity for others to suggest other,
-            potentially better solutions.
-          </p>
-          <p>
-            This phenomenon is also know as the "XY Problem"&mdash;the
-            phenomenon where someone wants to do <code>X</code> but
-            (incorrectly) thinks they can solve it by doing <code>Y</code>.
-          </p>
-        </section>
-        <section>
-          <h2 id="stay-async">
-            Stay in the Asynchronous Communication Channel (if possible)
-          </h2>
-          <div class="comparison">
-            <div class="bad">
-              I need help with <code>X</code>! Can someone join a voice call
-              with me?
-            </div>
-            <div class="good">
-              I need help with <code>X</code>! Voice call if possible but it's
-              fine if you answer here.
-            </div>
-          </div>
-          <p>
-            If you are asking for help in an asynchronous medium, (one where
-            people don't necessarily have to communicate in real time&mdash;e.g.
-            email, a chat room, forums) then it's best to keep communication
-            asynchronous. Trying to move communication to a synchronous,
-            real-time medium (e.g. a voice/video call) will likely be a turn-off
-            for potential answerers because it means they have to carve out a
-            block of time where they are dedicated on answering your question.
-            On the other hand, in an asynchronous medium, they are free to reply
-            whenever they have spare time.
-          </p>
-          <p>
-            This isn't to say that synchronous communication is bad, nor is it
-            bad to ask if you need synchronous communication to learn. Whether
-            an answerer wants to join a voice call is their choice. The main
-            issue is that <em>fewer</em> people will be willing to help you.
-          </p>
-        </section>
-        <section>
-          <h2 id="dont-know-what-you-dont-know">
-            Not Everyone Knows What You Don't Know
-          </h2>
-          <div class="comparison">
-            <div class="bad">I already know <code>X</code>!</div>
-            <div class="good">
-              The part I'm more confused about is
-              <code>Y</code>.
-            </div>
-          </div>
-          <p>
-            Remember that the people helping you likely won't know what aspects
-            of the problem you're familiar with&mdash;and those you aren't
-            familiar with. Thus, you'll often run into cases where you're told
-            things you already know. While it might seem tempting to get
-            defensive, remember that the person helping you isn't doing this to
-            talk down to you&mdash;they just don't know what you already know,
-            and would rather not confuse you (and thus waste your time) talking
-            about things you would not yet understand. The best way to handle a
-            situation like this is to
-            <em>redirect the conversation to what you don't know.</em>
-          </p>
-        </section>
-        <section>
-          <h2 id="avoid-being-secretive">
-            Avoid Being Secretive (if possible)
-          </h2>
-          <div class="comparison">
-            <div class="bad">How do I do <code>X</code>?</div>
-            <div class="good">
-              How do I do <code>X</code>? I'm making it for
-              <code>PROJECT</code> which does <code>Y</code> and <code>Z</code>.
-            </div>
-          </div>
-          <p>
-            In some cases, if you're getting help with a project, you might feel
-            tempted to be secretive about it, perhaps to keep it as a surprise
-            or to prevent others from taking your ideas. However, being
-            secretive is also a big hindrance to fixing your project's issues
-            you because it may result in <a href="#xy-problem">XY Problems</a>:
-            By not revealing the underlying end goal of your project, you're not
-            giving others the opportunity to present better ways of achieving
-            it.
-          </p>
-          <p>
-            Being secretive also makes helping more difficult because in a
-            secretive project, helpers are likely to lack crucial information,
-            preventing them from making informed decisions.
-          </p>
-        </section>
-        <section>
-          <h2 id="helpers-are-volunteers">Helpers are (often) Volunteers</h2>
-          <p>
-            In the end, remember that, unless they're getting paid to help you,
-            the people helping you are ultimately volunteering their own time to
-            do so, and thus are under no obligation to keep helping you. Don't
-            let this stop you from seeking help, however&mdash;because they're
-            volunteering, they almost certainly <em>want</em> to help you either
-            way, even if they are not required to.
-          </p>
-        </section>
-        <hr />
-        <section>
-          <h1 id="how-to-deal-with-people-who-ask-questions-the-wrong-way">
-            How to Deal With People who Ask Questions the Wrong Way
-          </h1>
-          <p>
-            This section is for people on the opposite side of the
-            spectrum&mdash;people who want to <em>answer</em> questions and have
-            to deal with questions that ignore guidelines like the ones above.
-          </p>
-        </section>
-        <section>
-          <h2 id="hanlons-razor">
-            Hanlon's Razor: "Never Attribute to Malice what can be Adequately
-            Explained by Ignorance"
-          </h2>
-          <div class="comparison">
-            <div class="bad">
-              <span class="thinking"
-                >This person is "asking to ask," they're clearly trying to
-                monopolize our time and avoid doing their own fair share of the
-                work.</span
-              >
-            </div>
-            <div class="good">
-              <span class="thinking"
-                >This person is "asking to ask&mdash;" they probably just don't
-                know how to approach getting help in this community.</span
-              >
-            </div>
-          </div>
-          <p>
-            If you get a "bad" question, don't approach the situation assuming
-            that the person asking is doing so out of malicious
-            intent&mdash;they are much more likely breaking social rules because
-            they do not
-            <em>know</em> them. Consider how many of the rules above are
-            actively <em>harmful</em> when applied to
-            <em>in-person</em> interactions:
-          </p>
+    <header>
+      <div class="container">
+        <h2 class="title">Good Questions</h2>
+        <nav>
           <ul>
             <li>
-              <a href="#cast-a-wide-net">"Asking to ask"</a> becomes necessary
-              because IRL, talking to someone takes their full attention and
-              can't be delayed, so it's polite to ask first. Conversely, an
-              online, text-based question does not demand your attention and can
-              be read later, at any time.
+              <a
+                href="https://github.com/radian628/good-questions"
+                class="contrast"
+                data-tooltip="GitHub"
+                data-placement="bottom"
+              >
+                <svg width="28" viewbox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
             </li>
             <li>
-              <a href="#no-hello">"No hello"</a> becomes bad advice in person
-              because greetings establish conversations. If you were busy doing
-              something and someone <em>immediately</em> began talking to you,
-              you'd likely miss the start of what they said, since you can't
-              immediately switch focus. Online, on the other hand, you can take
-              a look at someone's question whenever you want.
-            </li>
-            <li>
-              <a href="#be-upfront">Being upfront</a> becomes a problem because
-              of information overload. If someone monologued about their problem
-              to you for ten minutes IRL, you wouldn't be able to remember all
-              of what they said. On the other hand, online, you don't
-              <em>have</em> to remember, because the text will still be there
-              after you've read it.
+              <button
+                class="theme-toggle contrast"
+                type="button"
+                title="Toggle theme"
+                aria-label="Toggle theme"
+                data-tooltip="Toggle theme"
+                data-placement="bottom"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  class="theme-toggle__within"
+                  width="28"
+                  viewBox="0 0 32 32"
+                  fill="currentColor"
+                >
+                  <clipPath id="theme-toggle__within__clip">
+                    <path d="M0 0h32v32h-32ZM6 16A1 1 0 0026 16 1 1 0 006 16" />
+                  </clipPath>
+                  <g clip-path="url(#theme-toggle__within__clip)">
+                    <path
+                      d="M30.7 21.3 27.1 16l3.7-5.3c.4-.5.1-1.3-.6-1.4l-6.3-1.1-1.1-6.3c-.1-.6-.8-.9-1.4-.6L16 5l-5.4-3.7c-.5-.4-1.3-.1-1.4.6l-1 6.3-6.4 1.1c-.6.1-.9.9-.6 1.3L4.9 16l-3.7 5.3c-.4.5-.1 1.3.6 1.4l6.3 1.1 1.1 6.3c.1.6.8.9 1.4.6l5.3-3.7 5.3 3.7c.5.4 1.3.1 1.4-.6l1.1-6.3 6.3-1.1c.8-.1 1.1-.8.7-1.4zM16 25.1c-5.1 0-9.1-4.1-9.1-9.1 0-5.1 4.1-9.1 9.1-9.1s9.1 4.1 9.1 9.1c0 5.1-4 9.1-9.1 9.1z"
+                    />
+                  </g>
+                  <path
+                    class="theme-toggle__within__circle"
+                    d="M16 7.7c-4.6 0-8.2 3.7-8.2 8.2s3.6 8.4 8.2 8.4 8.2-3.7 8.2-8.2-3.6-8.4-8.2-8.4zm0 14.4c-3.4 0-6.1-2.9-6.1-6.2s2.7-6.1 6.1-6.1c3.4 0 6.1 2.9 6.1 6.2s-2.7 6.1-6.1 6.1z"
+                  />
+                  <path
+                    class="theme-toggle__within__inner"
+                    d="M16 9.5c-3.6 0-6.4 2.9-6.4 6.4s2.8 6.5 6.4 6.5 6.4-2.9 6.4-6.4-2.8-6.5-6.4-6.5z"
+                  />
+                </svg>
+              </button>
             </li>
           </ul>
-          <p>
-            In other words, someone breaking these rules is likely doing so
-            because they are applying IRL standards to an online forum.
-          </p>
-        </section>
-        <section>
-          <h2 id="dont-respond-with-a-link">
-            Don't Respond with a Link to This Site (or others, for that matter)
-          </h2>
-          <div class="comparison">
-            <div class="bad">
-              Don't ask to ask:
-              <a href="https://radian628.github.io/good-questions/"
-                >https://radian628.github.io/good-questions/</a
-              >
-            </div>
-            <div class="good">
-              Feel free to ask your question! You don't need to "ask to ask"
-              btw; just ask upfront and you'll get a faster response.
-            </div>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <section class="hero">
+        <h1 id="main-title">Get your questions answered&mdash;<em>faster</em></h1>
+        <p class="secondary">
+          A list of tips on how to get questions answered more quickly in online spaces, tailored toward technical
+          questions in asynchronous media such as emails, chat rooms, and forums.
+        </p>
+        <p>
+          The rule of thumb is to
+          <em>give the person answering as much help as possible.</em><br />
+          Help them so they can help you&mdash;it's a win-win!
+        </p>
+        <div class="cta">
+          <p class="noselect" aria-hidden="true"><em>Read more</em></p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="cta-arrow"
+          >
+            <path d="M12 5v14" />
+            <path d="m19 12-7 7-7-7" />
+          </svg>
+        </div>
+      </section>
+      <article id="content" class="readable-width">
+        <h2 id="cast-a-wide-net">Cast as wide a net as possible</h2>
+        <div class="comparison">
+          <div class="bad">Any JavaScript pros around that can help me?</div>
+          <div class="good">I am trying to do <code>X</code> with JavaScript, can someone help?</div>
+        </div>
+        <p>
+          If you're asking for help, try to avoid walling off people&mdash;leave your question open so that anyone feels
+          like they're allowed to answer it. This is important for programming in particular because what might
+          <em>seem</em> like a language-specific question might actually be something that any experienced programmer
+          would know, regardless of language. By asking for a "JavaScript pro," you might be walling off a Python pro
+          who knows the answer.
+        </p>
+        <p>
+          On a similar note, avoid DMing someone a question when you can just as easily reach them in a public place
+          (e.g. a group chat or forum) that they frequently visit. That way, not only can they answer, but someone else
+          could as well.
+        </p>
+        <h2 id="be-upfront">Be Upfront&mdash;Minimize Back-and-Forth</h2>
+        <div class="comparison">
+          <div class="bad">Hey, I need some help with JavaScript.</div>
+          <div class="good">
+            I am trying to do <code>X</code>, <code>Y</code>, and <code>Z</code> with JavaScript. Here's what I've tried
+            so far and here's why it failed:
           </div>
-          <p>
-            <span class="thinking"
-              >Wait... so if I'm not supposed to link to this site, why does it
-              even exist?</span
-            >
-            These sorts of sites are better to link in rules pages, bios, and
-            other such public places where many people can see them, as opposed
-            to being used as <em>directed, unsolicited advice</em>.
-          </p>
-          <p>
-            To some, responding to a question with a link to a site like this
-            (or DontAskToAsk, No Hello, etc.) can come off as rude, dismissive,
-            and accusatory, regardless of the tone of the site itself. It can
-            feel like contacting customer service and getting an automated
-            response from a bot&mdash;one entirely unrelated to your
-            problem&mdash;instead of a real human. Furthermore, depending on the
-            site, responses like these can encourage people to get defensive, as
-            they sometimes paint people asking questions as being lazy or
-            malicious, even if they're acting out of ignorance.
-          </p>
-          <p>
-            Instead of linking a page, try crafting a short response tailored to
-            the user's specific problem. If possible, frame it as you trying to
-            <em>help them</em> get their question answered. Avoid being
-            antagonistic for no reason. If you're concerned about time, keep in
-            mind that crafting a response should ideally only take you a few
-            seconds.
-          </p>
-          <p class="thinking">
-            (PS: For a fun bit of irony, if someone links you this site for
-            making an error, send them this section in response.)
-          </p>
-        </section>
-        <section>
-          <h2 id="be-honest-about-your-skills">Be Honest About Your Skills</h2>
-          <div class="comparison">
-            <div class="bad">
-              Oh, you're on the <code>Y</code> version of <code>X</code>? Try
-              <code>INCORRECT INFO</code>.
-            </div>
-            <div class="good">
-              Oh, you're on the <code>Y</code> version of <code>X</code>? I
-              actually am not familiar with that version. Try asking
-              <code>OTHER EXPERT</code>.
-            </div>
+        </div>
+        <p>
+          <em>Add as much information as you can to your initial post</em>
+          when you ask a question. This will make it easier to answer because the answerer won't have to ask as many
+          clarifying questions.
+        </p>
+        <p>
+          In general, when communicating over an asynchronous medium, people prefer answering questions on their own
+          time over carving out a specific, contiguous block of time to help someone. Furthermore, a lot of the time,
+          they'll only have a minute or two to answer questions before they return to some other task. They won't want
+          to respond to a question with a lot of back-and-forth because they might not know when they'll next have a
+          break where they can follow up. They don't want to leave you hanging!
+        </p>
+        <h3 id="no-hello">"No Hello"</h3>
+        <div class="comparison">
+          <div class="bad">Hi!</div>
+          <div class="good">
+            Hi! I ran into this problem with
+            <code>X</code> the other day and needed some help with...
           </div>
-          <p>
-            It can be tempting to help with something you can't realistically
-            help with. After all, the person you offered to help likely now has
-            the expectation that you know what you're talking about, and you'd
-            rather not let them down. However, giving someone incorrect advice
-            will harm them more in the long run than admitting that you don't
-            know something.
-          </p>
-        </section>
-        <hr />
-        <section>
-          <h2 id="ok-but-why">
-            Why use this site? Why not just link to DontAskToAsk?
-          </h2>
-          <p>
-            As much as I like the message behind sites like
-            <a href="https://dontasktoask.com/">Don't Ask to Ask</a> and
-            <a href="http://www.catb.org/esr/faqs/smart-questions.html"
-              >Smart Questions</a
-            >, (both inspired this site!) I think both of these resources&mdash;
-            and many more&mdash;are unnecessarily harsh toward their intended
-            recipients. Consider the POV of a clueless new user who asks a
-            question the "wrong" way&mdash;they try to ask a question they
-            believe is sufficient, only to be told that they're "lazy" and an
-            "idiot." It's a bad first impression that could drive a new,
-            unconfident, well-meaning user away from your community.
-            Furthermore, by accusing people of poor etiquette, they'll be
-            inclined to get defensive instead of addressing their issues as to
-            not appear like a "bad person."
-          </p>
-          <p>
-            My goal with this site is to send a message similar to existing
-            sites, but to present the advice as a win-win for both parties, and
-            to cut out the accusations and sarcasm. That way, if you link it to
-            someone, they'll be more likely to see it for what it is&mdash;a
-            helping hand&mdash;as opposed to an insult.
-          </p>
-          <p>
-            By the way, if you have ideas for tips of your own or want to make
-            general improvements to the site,
-            <a href="https://github.com/radian628/good-questions"
-              >feel free to open an issue or make a PR here!</a
-            >
-          </p>
-        </section>
-        <section>
-          <h2 id="other-sites">Other Similar Sites</h2>
-          <ul>
-            <li><a href="https://dontasktoask.com/">Don't Ask to Ask</a></li>
-            <li><a href="https://xyproblem.info/">The XY Problem</a></li>
-            <li>
-              <a href="http://www.catb.org/esr/faqs/smart-questions.html"
-                >How To Ask Questions the Smart Way</a
-              >
-            </li>
-            <li><a href="https://nohello.net/">No Hello</a></li>
-          </ul>
-        </section>
+        </div>
+        <p>
+          Another tempting mistake is to start with a greeting like "Hi!" or "Hello" in your first message, but send
+          your actual question in a second message. Your first message will key the other person in that you want to
+          talk, but you might lose their attention while writing out your actual question, because they might switch
+          back to what they were doing before you greeted them. It's best to combine both greeting and question into one
+          message.
+        </p>
+        <p>
+          In this sense, you should think of your messages as if you were
+          <em>writing a letter to a pen pal, and not a live phone call</em>. It wouldn't make sense to send a pen pal a
+          single letter consisting of "hi!" and nothing else.
+        </p>
+        <h2 id="xy-problem">State Your Problem, Not Just Your Solution</h2>
+        <div class="comparison">
+          <div class="bad">How do I do <code>Y</code>?</div>
+          <div class="good">How do I do <code>Y</code>? I'm trying to use it to solve <code>X</code>.</div>
+        </div>
+        <p>
+          If you have a problem and only ask about the way you intend to solve it, you lose the opportunity for others
+          to suggest other, potentially better solutions.
+        </p>
+        <p>
+          This phenomenon is also know as the "XY Problem"&mdash;the phenomenon where someone wants to do
+          <code>X</code> but (incorrectly) thinks they can solve it by doing <code>Y</code>.
+        </p>
+        <h2 id="stay-async">Stay in the Asynchronous Communication Channel (if possible)</h2>
+        <div class="comparison">
+          <div class="bad">I need help with <code>X</code>! Can someone join a voice call with me?</div>
+          <div class="good">
+            I need help with <code>X</code>! Voice call if possible but it's fine if you answer here.
+          </div>
+        </div>
+        <p>
+          If you are asking for help in an asynchronous medium, (one where people don't necessarily have to communicate
+          in real time&mdash;e.g. email, a chat room, forums) then it's best to keep communication asynchronous. Trying
+          to move communication to a synchronous, real-time medium (e.g. a voice/video call) will likely be a turn-off
+          for potential answerers because it means they have to carve out a block of time where they are dedicated on
+          answering your question. On the other hand, in an asynchronous medium, they are free to reply whenever they
+          have spare time.
+        </p>
+        <p>
+          This isn't to say that synchronous communication is bad, nor is it bad to ask if you need synchronous
+          communication to learn. Whether an answerer wants to join a voice call is their choice. The main issue is that
+          <em>fewer</em> people will be willing to help you.
+        </p>
+        <h2 id="dont-know-what-you-dont-know">Not Everyone Knows What You Don't Know</h2>
+        <div class="comparison">
+          <div class="bad">I already know <code>X</code>!</div>
+          <div class="good">
+            The part I'm more confused about is
+            <code>Y</code>.
+          </div>
+        </div>
+        <p>
+          Remember that the people helping you likely won't know what aspects of the problem you're familiar
+          with&mdash;and those you aren't familiar with. Thus, you'll often run into cases where you're told things you
+          already know. While it might seem tempting to get defensive, remember that the person helping you isn't doing
+          this to talk down to you&mdash;they just don't know what you already know, and would rather not confuse you
+          (and thus waste your time) talking about things you would not yet understand. The best way to handle a
+          situation like this is to
+          <em>redirect the conversation to what you don't know.</em>
+        </p>
+        <h2 id="avoid-being-secretive">Avoid Being Secretive (if possible)</h2>
+        <div class="comparison">
+          <div class="bad">How do I do <code>X</code>?</div>
+          <div class="good">
+            How do I do <code>X</code>? I'm making it for <code>PROJECT</code> which does <code>Y</code> and
+            <code>Z</code>.
+          </div>
+        </div>
+        <p>
+          In some cases, if you're getting help with a project, you might feel tempted to be secretive about it, perhaps
+          to keep it as a surprise or to prevent others from taking your ideas. However, being secretive is also a big
+          hindrance to fixing your project's issues you because it may result in <a href="#xy-problem">XY Problems</a>:
+          By not revealing the underlying end goal of your project, you're not giving others the opportunity to present
+          better ways of achieving it.
+        </p>
+        <p>
+          Being secretive also makes helping more difficult because in a secretive project, helpers are likely to lack
+          crucial information, preventing them from making informed decisions.
+        </p>
+        <h2 id="helpers-are-volunteers">Helpers are (often) Volunteers</h2>
+        <p>
+          In the end, remember that, unless they're getting paid to help you, the people helping you are ultimately
+          volunteering their own time to do so, and thus are under no obligation to keep helping you. Don't let this
+          stop you from seeking help, however&mdash;because they're volunteering, they almost certainly <em>want</em> to
+          help you either way, even if they are not required to.
+        </p>
       </article>
+      <div class="intermission readable-width grid">
+        <p>While you're here, I'd just like to thank you for taking time out of your day to read this.</p>
+        <img class="noselect" src="MAN.jpg" alt="" />
+      </div>
+      <article class="readable-width">
+        <h1 id="how-to-deal-with-people-who-ask-questions-the-wrong-way">
+          How to Deal With People who Ask Questions the Wrong Way
+        </h1>
+        <p>
+          This section is for people on the opposite side of the spectrum&mdash;people who want to
+          <em>answer</em> questions and have to deal with questions that ignore guidelines like the ones above.
+        </p>
+        <h2 id="hanlons-razor">
+          Hanlon's Razor: "Never Attribute to Malice what can be Adequately Explained by Ignorance"
+        </h2>
+        <div class="comparison">
+          <div class="bad">
+            <span class="thinking"
+              >This person is "asking to ask," they're clearly trying to monopolize our time and avoid doing their own
+              fair share of the work.</span
+            >
+          </div>
+          <div class="good">
+            <span class="thinking"
+              >This person is "asking to ask&mdash;" they probably just don't know how to approach getting help in this
+              community.</span
+            >
+          </div>
+        </div>
+        <p>
+          If you get a "bad" question, don't approach the situation assuming that the person asking is doing so out of
+          malicious intent&mdash;they are much more likely breaking social rules because they do not
+          <em>know</em> them. Consider how many of the rules above are actively <em>harmful</em> when applied to
+          <em>in-person</em> interactions:
+        </p>
+        <ul>
+          <li>
+            <a href="#cast-a-wide-net">"Asking to ask"</a> becomes necessary because IRL, talking to someone takes their
+            full attention and can't be delayed, so it's polite to ask first. Conversely, an online, text-based question
+            does not demand your attention and can be read later, at any time.
+          </li>
+          <li>
+            <a href="#no-hello">"No hello"</a> becomes bad advice in person because greetings establish conversations.
+            If you were busy doing something and someone <em>immediately</em> began talking to you, you'd likely miss
+            the start of what they said, since you can't immediately switch focus. Online, on the other hand, you can
+            take a look at someone's question whenever you want.
+          </li>
+          <li>
+            <a href="#be-upfront">Being upfront</a> becomes a problem because of information overload. If someone
+            monologued about their problem to you for ten minutes IRL, you wouldn't be able to remember all of what they
+            said. On the other hand, online, you don't <em>have</em> to remember, because the text will still be there
+            after you've read it.
+          </li>
+        </ul>
+        <p>
+          In other words, someone breaking these rules is likely doing so because they are applying IRL standards to an
+          online forum.
+        </p>
+        <h2 id="dont-respond-with-a-link">Don't Respond with a Link to This Site (or others, for that matter)</h2>
+        <div class="comparison">
+          <div class="bad">
+            Don't ask to ask:
+            <a href="https://radian628.github.io/good-questions/">https://radian628.github.io/good-questions/</a>
+          </div>
+          <div class="good">
+            Feel free to ask your question! You don't need to "ask to ask" btw; just ask upfront and you'll get a faster
+            response.
+          </div>
+        </div>
+        <p>
+          <span class="thinking">Wait... so if I'm not supposed to link to this site, why does it even exist?</span>
+          These sorts of sites are better to link in rules pages, bios, and other such public places where many people
+          can see them, as opposed to being used as <em>directed, unsolicited advice</em>.
+        </p>
+        <p>
+          To some, responding to a question with a link to a site like this (or DontAskToAsk, No Hello, etc.) can come
+          off as rude, dismissive, and accusatory, regardless of the tone of the site itself. It can feel like
+          contacting customer service and getting an automated response from a bot&mdash;one entirely unrelated to your
+          problem&mdash;instead of a real human. Furthermore, depending on the site, responses like these can encourage
+          people to get defensive, as they sometimes paint people asking questions as being lazy or malicious, even if
+          they're acting out of ignorance.
+        </p>
+        <p>
+          Instead of linking a page, try crafting a short response tailored to the user's specific problem. If possible,
+          frame it as you trying to
+          <em>help them</em> get their question answered. Avoid being antagonistic for no reason. If you're concerned
+          about time, keep in mind that crafting a response should ideally only take you a few seconds.
+        </p>
+        <p class="thinking">
+          (PS: For a fun bit of irony, if someone links you this site for making an error, send them this section in
+          response.)
+        </p>
+        <h2 id="be-honest-about-your-skills">Be Honest About Your Skills</h2>
+        <div class="comparison">
+          <div class="bad">
+            Oh, you're on the <code>Y</code> version of <code>X</code>? Try <code>INCORRECT INFO</code>.
+          </div>
+          <div class="good">
+            Oh, you're on the <code>Y</code> version of <code>X</code>? I actually am not familiar with that version.
+            Try asking <code>OTHER EXPERT</code>.
+          </div>
+        </div>
+        <p>
+          It can be tempting to help with something you can't realistically help with. After all, the person you offered
+          to help likely now has the expectation that you know what you're talking about, and you'd rather not let them
+          down. However, giving someone incorrect advice will harm them more in the long run than admitting that you
+          don't know something.
+        </p>
+      </article>
+
+      <h2 id="ok-but-why">Why use this site? Why not just link to DontAskToAsk?</h2>
+      <p>
+        As much as I like the message behind sites like
+        <a href="https://dontasktoask.com/">Don't Ask to Ask</a> and
+        <a href="http://www.catb.org/esr/faqs/smart-questions.html">Smart Questions</a>, (both inspired this site!) I
+        think both of these resources&mdash;and many more&mdash;are unnecessarily harsh toward their intended
+        recipients. Consider the POV of a clueless new user who asks a question the "wrong" way&mdash;they try to ask a
+        question they believe is sufficient, only to be told that they're "lazy" and an "idiot." It's a bad first
+        impression that could drive a new, unconfident, well-meaning user away from your community. Furthermore, by
+        accusing people of poor etiquette, they'll be inclined to get defensive instead of addressing their issues as to
+        not appear like a "bad person."
+      </p>
+      <p>
+        My goal with this site is to send a message similar to existing sites, but to present the advice as a win-win
+        for both parties, and to cut out the accusations and sarcasm. That way, if you link it to someone, they'll be
+        more likely to see it for what it is&mdash;a helping hand&mdash;as opposed to an insult.
+      </p>
+      <p>
+        By the way, if you have ideas for tips of your own or want to make general improvements to the site,
+        <a href="https://github.com/radian628/good-questions">feel free to open an issue or make a PR here!</a>
+      </p>
+      <h2 id="other-sites">Other Similar Sites</h2>
+      <ul>
+        <li><a href="https://dontasktoask.com/">Don't Ask to Ask</a></li>
+        <li><a href="https://xyproblem.info/">The XY Problem</a></li>
+        <li>
+          <a href="http://www.catb.org/esr/faqs/smart-questions.html">How To Ask Questions the Smart Way</a>
+        </li>
+        <li><a href="https://nohello.net/">No Hello</a></li>
+      </ul>
     </main>
+    <footer class="container">
+      <p><em>Go forth and question!</em></p>
+    </footer>
     <script src="./index.js"></script>
   </body>
 </html>
