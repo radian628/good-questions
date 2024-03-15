@@ -207,10 +207,6 @@ header .container .theme-toggle {
   text-decoration-color: var(--pico-underline);
 }
 
-.thinking {
-  font-style: italic;
-}
-
 /* Intermission styles */
 .intermission {
   margin-block: calc(var(--pico-typography-spacing-vertical) * 3);
