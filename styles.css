@@ -53,6 +53,10 @@ code {
   user-select: none;
 }
 
+.shadow {
+  box-shadow: var(--pico-card-box-shadow);
+}
+
 .clean-break,
 a {
   overflow-wrap: break-word;
@@ -211,12 +215,13 @@ header .container .theme-toggle {
 .intermission {
   margin-block: calc(var(--pico-typography-spacing-vertical) * 3);
   text-align: center;
-  align-items: center;
+  place-items: center;
 }
 
 .image-group {
   display: grid;
   place-items: center;
+  width: fit-content;
 }
 
 .image-group > img {
