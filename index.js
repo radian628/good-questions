@@ -1,3 +1,4 @@
+// Add links to all the headers
 const headers = document.querySelectorAll("#content :is(h1,h2,h3,h4,h5,h6)");
 
 for (const header of headers) {
@@ -11,6 +12,7 @@ for (const header of headers) {
   header.appendChild(a);
 }
 
+// Highlight a linked header
 let lastSelectedSection;
 
 const hashchange = () => {
@@ -25,6 +27,7 @@ const hashchange = () => {
   }
 };
 
+// Listen for hash changes and run on startup
 window.addEventListener("hashchange", hashchange);
 
 hashchange();
