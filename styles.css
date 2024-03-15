@@ -231,7 +231,7 @@ header .container .theme-toggle {
 
 .hover-reveal {
   opacity: 0;
-  transition: opacity 500ms ease-out 1s;
+  transition: opacity 500ms ease-out 500ms;
 }
 .image-group:hover .hover-reveal {
   opacity: 1;
