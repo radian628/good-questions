@@ -37,10 +37,19 @@ article > * + * {
   margin-bottom: var(--pico-typography-spacing-vertical);
 }
 
-/* Header link scroll offset */
+/* Header top margin */
 main article :is(h1, h2, h3, h4, h5, h6):not(:first-child) {
-  scroll-margin-top: 2rem;
   margin-top: 1em;
+}
+
+/* Direct link to margin */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  scroll-margin-top: 2rem;
 }
 
 /* Fix code padding for smaller boxes */
