@@ -8,7 +8,7 @@ headers.forEach((header) => {
   a.href = `#${header.id}`;
   a.innerHTML = innerHTML;
   header.innerHTML = "";
-  a.classList = "contrast"; // Make the link contrast (Pico style)
+  a.classList = "header-link contrast"; // Make the link contrast (Pico style)
   header.appendChild(a);
 });
 

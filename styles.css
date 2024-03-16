@@ -58,7 +58,7 @@ code {
 }
 
 .clean-break,
-a {
+a:not(.header-link) {
   overflow-wrap: break-word;
   word-wrap: break-word;
   -ms-word-break: break-all;
