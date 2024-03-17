@@ -30,6 +30,7 @@
 /* A little shifting shenans */
 :root main {
   padding-top: 0;
+  text-wrap: pretty;
 }
 
 /* Article spacing between elements */
