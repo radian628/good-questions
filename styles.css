@@ -13,11 +13,19 @@
 /* Light */
 [data-theme="light"] {
   --pico-mark-gradient: linear-gradient(to right, #2060df, #0172ad, #006d46);
+  --good-background-color: rgba(96, 183, 87, 0.2);
+  --good-border-color: rgba(27, 82, 20, 0.2);
+  --bad-background-color: rgba(204, 102, 102, 0.2);
+  --bad-border-color: rgba(95, 32, 32, 0.2);
 }
 
 /* Dark */
 [data-theme="dark"] {
   --pico-mark-gradient: linear-gradient(to right, #d0d2fa, #b7d9fc, #cbfce1);
+  --good-background-color: rgba(96, 183, 87, 0.3);
+  --good-border-color: rgb(11, 43, 7, 0.4);
+  --bad-background-color: rgba(204, 102, 102, 0.3);
+  --bad-border-color: rgba(63, 0, 0, 0.4);
 }
 
 /* Evil SVG invert hack */
@@ -206,14 +214,14 @@ header .container .theme-toggle {
 
 .bad {
   position: relative;
-  background: rgba(204, 102, 102, 0.2);
-  border-left: 50px solid rgba(95, 32, 32, 0.2);
+  background: var(--bad-background-color);
+  border-left: 50px solid var(--bad-border-color);
 }
 
 .good {
   position: relative;
-  background: rgba(96, 183, 87, 0.2);
-  border-right: 50px solid rgba(27, 82, 20, 0.2);
+  background: var(--good-background-color);
+  border-right: 50px solid var(--good-border-color);
 }
 
 .selected-section > :is(h1, h2, h3) a {
