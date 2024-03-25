@@ -128,9 +128,9 @@ header .container {
 }
 header .container .theme-toggle {
   color: var(--pico-contrast-color);
-  box-shadow: unset;
 
   /* counter the padding so it lines up with a tags */
+  padding: var(--pico-nav-link-spacing-vertical) var(--pico-nav-link-spacing-horizontal);
   margin: calc(var(--pico-nav-link-spacing-vertical) * -1) calc(var(--pico-nav-link-spacing-horizontal) * -1);
 }
 
